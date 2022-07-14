@@ -1,6 +1,7 @@
 package guru.springframework.springguru.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -13,17 +14,16 @@ public class Artist {
     private String secondName;
 
     @ManyToMany(mappedBy = "artist")
-    private Set<Book> bookList;
+    private Set<Book> bookList = new HashSet<>();
 
     public Artist() {
     }
 
 
-    public Artist(String name, String secondName, Set<Book> bookList) {
+    public Artist(String name, String secondName) {
 
         this.name = name;
         this.secondName = secondName;
-        this.bookList = bookList;
     }
 
     public String getName() {
@@ -48,5 +48,30 @@ public class Artist {
 
     public void setBookList(Set<Book> bookList) {
         this.bookList = bookList;
+    }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", bookList=" + bookList +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Artist artist = (Artist) o;
+
+        return id == artist.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
     }
 }
