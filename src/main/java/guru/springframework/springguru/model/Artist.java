@@ -55,9 +55,7 @@ public class Artist {
         return "Artist{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", bookList=" + bookList +
-                '}';
+                ", secondName='" + secondName + '\'' + '}';
     }
 
     @Override

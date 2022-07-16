@@ -75,9 +75,7 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", artist=" + artist +
-                '}';
+                ", isbn='" + isbn + '\'' + '}';
     }
 
     @Override
